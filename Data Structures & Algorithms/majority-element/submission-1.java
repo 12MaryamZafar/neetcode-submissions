@@ -1,0 +1,15 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int n = nums.length;
+
+        for(int i=0; i < n ; i++){
+            map.put(nums[i] , map.getOrDefault(nums[i] , 0)+1); //.getordefault gives two params.
+            if(map.get(nums[i])>n/2){ //through .get we can search on the key exactly.
+                return nums[i];
+            }
+        }
+
+        return -1; //we return when we know that its never gonna reach.
+    }
+}
